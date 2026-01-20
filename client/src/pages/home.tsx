@@ -33,6 +33,8 @@ import drillImage from "@assets/generated_images/power_drill_tool_product_shot.p
 import brickImage from "@assets/generated_images/hollow_red_bricks_stack_product_shot.png";
 import paintImage from "@assets/generated_images/interior_paint_bucket_product_shot.png";
 
+import logoImage from "@assets/Logo_Norte_1-1_1768914590172.png";
+
 // Schema for contact form
 const contactSchema = z.object({
   name: z.string().min(2, "El nombre es muy corto"),
@@ -87,15 +89,6 @@ export default function Home() {
     { name: "Sanitarios", icon: <div className="h-8 w-8 border-b-4 border-current rounded-b-xl" /> },
   ];
 
-  const offers = [
-    { name: "Cemento Portland 50kg", price: "$ Consultar", image: cementImage, tag: "Oferta" },
-    { name: "Hierro de Construcción 8mm", price: "$ Consultar", image: rebarImage, tag: "Stock" },
-    { name: "Ladrillo Hueco 12x18x33", price: "$ Consultar", image: brickImage, tag: "Pack x100" },
-    { name: "Taladro Percutor 13mm", price: "$ Consultar", image: drillImage, tag: "15% OFF" },
-    { name: "Látex Interior 20L", price: "$ Consultar", image: paintImage, tag: "Nuevo" },
-    { name: "Carretilla Reforzada", price: "$ Consultar", image: heroImage, tag: "Promo" }, // Reusing hero as placeholder for generic
-  ];
-
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
       {/* Navigation */}
@@ -105,8 +98,8 @@ export default function Home() {
         }`}
       >
         <div className="container mx-auto px-4 flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-primary flex items-center justify-center font-bold text-xl rounded">N</div>
+          <div className="flex items-center gap-2 cursor-pointer" onClick={() => scrollTo('inicio')}>
+            <img src={logoImage} alt="Norte Logo" className="h-10 w-auto" />
             <span className={`text-2xl font-heading font-bold uppercase tracking-tighter ${isScrolled ? "text-secondary" : "text-white drop-shadow-md"}`}>
               NORTE
             </span>
@@ -114,7 +107,7 @@ export default function Home() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-8 items-center">
-            {["Inicio", "Productos", "Servicios", "Ubicación", "Contacto"].map((item) => (
+            {["Inicio", "Servicios", "Ubicación", "Contacto"].map((item) => (
               <button 
                 key={item}
                 onClick={() => scrollTo(item.toLowerCase())}
@@ -123,9 +116,11 @@ export default function Home() {
                 {item}
               </button>
             ))}
-            <Button className="bg-primary text-secondary hover:bg-primary/90 font-bold">
-              <Phone className="mr-2 h-4 w-4" /> 3644-XXXXXX
-            </Button>
+            <a href="https://wa.me/5493644646939" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-primary text-secondary hover:bg-primary/90 font-bold">
+                <Phone className="mr-2 h-4 w-4" /> WhatsApp
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -144,7 +139,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             className="absolute top-full left-0 right-0 bg-white shadow-lg p-4 flex flex-col gap-4 md:hidden border-t"
           >
-            {["Inicio", "Productos", "Servicios", "Ubicación", "Contacto"].map((item) => (
+            {["Inicio", "Servicios", "Ubicación", "Contacto"].map((item) => (
               <button 
                 key={item}
                 onClick={() => scrollTo(item.toLowerCase())}
@@ -153,7 +148,9 @@ export default function Home() {
                 {item}
               </button>
             ))}
-            <Button className="w-full font-bold">Llamar Ahora</Button>
+            <a href="https://wa.me/5493644646939" target="_blank" rel="noopener noreferrer" className="w-full">
+              <Button className="w-full font-bold">WhatsApp</Button>
+            </a>
           </motion.div>
         )}
       </nav>
@@ -175,6 +172,9 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
+            <div className="flex justify-center mb-8">
+              <img src={logoImage} alt="Norte Logo Large" className="h-32 md:h-48 w-auto brightness-0 invert opacity-90" />
+            </div>
             <h2 className="text-primary font-bold tracking-widest uppercase mb-4 text-sm md:text-base">Sáenz Peña, Chaco</h2>
             <h1 className="text-5xl md:text-7xl font-heading font-extrabold uppercase leading-tight mb-6">
               Todo para tu obra <br /> <span className="text-primary">en un solo lugar</span>
@@ -183,9 +183,11 @@ export default function Home() {
               Desde los cimientos hasta las terminaciones. Calidad, precio y el mejor asesoramiento.
             </p>
             <div className="flex flex-col md:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-primary text-secondary hover:bg-primary/90 text-lg px-8 py-6 h-auto font-bold uppercase rounded-none" onClick={() => scrollTo('contacto')}>
-                Pedir Presupuesto
-              </Button>
+              <a href="https://wa.me/5493644646939?text=Hola,%20quisiera%20un%20presupuesto" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" className="bg-primary text-secondary hover:bg-primary/90 text-lg px-8 py-6 h-auto font-bold uppercase rounded-none w-full md:w-auto">
+                  Pedir Presupuesto
+                </Button>
+              </a>
               <Button size="lg" variant="outline" className="border-white text-primary hover:bg-white hover:text-secondary text-lg px-8 py-6 h-auto uppercase rounded-none font-bold backdrop-blur-sm" onClick={() => scrollTo('ubicación')}>
                 <MapPin className="mr-2 h-5 w-5" /> Ver Ubicación
               </Button>
@@ -209,47 +211,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      {/* Offers Section */}
-      <section id="productos" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-heading font-bold text-secondary uppercase mb-4">Ofertas del Mes</h2>
-            <div className="w-24 h-1 bg-primary mx-auto mb-4" />
-            <p className="text-muted-foreground">Precios imperdibles en materiales seleccionados.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {offers.map((offer, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <Card className="overflow-hidden border-none shadow-md hover:shadow-xl transition-shadow duration-300 group bg-white">
-                  <div className="relative h-64 bg-white p-6 flex items-center justify-center">
-                    <div className="absolute top-4 right-4 bg-primary text-secondary text-xs font-bold px-3 py-1 uppercase rounded-sm z-10">
-                      {offer.tag}
-                    </div>
-                    <img src={offer.image} alt={offer.name} className="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500" />
-                  </div>
-                  <CardContent className="p-6 bg-white border-t relative z-20">
-                    <h3 className="font-heading font-bold text-xl mb-2 text-secondary">{offer.name}</h3>
-                    <div className="flex justify-between items-center mt-4">
-                      <span className="text-muted-foreground font-medium">{offer.price}</span>
-                      <Button variant="ghost" className="text-primary hover:text-primary/80 font-bold p-0 hover:bg-transparent">
-                        CONSULTAR <ArrowRight className="ml-1 h-4 w-4" />
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Services Section */}
       <section id="servicios" className="py-20 bg-secondary text-white relative overflow-hidden">
@@ -282,7 +243,7 @@ export default function Home() {
               <ul className="space-y-4 text-gray-300">
                 <li className="flex justify-between border-b border-white/10 pb-2">
                   <span>Lunes a Viernes</span>
-                  <span className="font-bold text-primary">07:30 - 12:00 | 16:00 - 20:00</span>
+                  <span className="font-bold text-primary">08:00 - 12:00 | 15:00 - 19:30</span>
                 </li>
                 <li className="flex justify-between border-b border-white/10 pb-2">
                   <span>Sábados</span>
@@ -301,7 +262,7 @@ export default function Home() {
       {/* Location & Map */}
       <section id="ubicación" className="h-[500px] relative bg-gray-200">
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14165.250212356543!2d-60.446654!3d-26.790011!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94412d0000000001%3A0x0!2sPresidencia%20Roque%20S%C3%A1enz%20Pe%C3%B1a%2C%20Chaco!5e0!3m2!1ses!2sar!4v1600000000000!5m2!1ses!2sar" 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3541.312521356543!2d-60.446654!3d-26.790011!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94412d0000000001%3A0x0!2sSan%20Martin%201001%2C%20Presidencia%20Roque%20Saenz%20Pe%C3%B1a%2C%20Chaco!5e0!3m2!1ses!2sar!4v1600000000000!5m2!1ses!2sar" 
           width="100%" 
           height="100%" 
           style={{ border: 0, filter: "grayscale(1)" }} 
@@ -312,10 +273,12 @@ export default function Home() {
         ></iframe>
         <div className="absolute bottom-8 left-4 md:left-12 bg-white p-6 shadow-xl max-w-sm rounded border-l-4 border-primary">
           <h3 className="font-bold text-lg mb-2 flex items-center gap-2"><MapPin className="text-primary" size={20}/> Nuestra Ubicación</h3>
-          <p className="text-gray-600 mb-4">Calle Principal 1234, B° Centro<br/>Sáenz Peña, Chaco</p>
-          <Button className="w-full bg-primary text-secondary hover:bg-primary/90 font-bold uppercase">
-            Cómo Llegar
-          </Button>
+          <p className="text-gray-600 mb-4">San Martín 1001<br/>Presidencia Roque Sáenz Peña, Chaco</p>
+          <a href="https://maps.app.goo.gl/ciFJsRGgpQ4HUsC26" target="_blank" rel="noopener noreferrer">
+            <Button className="w-full bg-primary text-secondary hover:bg-primary/90 font-bold uppercase">
+              Cómo Llegar
+            </Button>
+          </a>
         </div>
       </section>
 
@@ -387,7 +350,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div>
-              <div className="w-10 h-10 bg-primary flex items-center justify-center font-bold text-xl rounded mb-4 text-secondary">N</div>
+              <img src={logoImage} alt="Norte Logo Footer" className="h-10 w-auto mb-4 brightness-0 invert" />
               <h3 className="font-heading font-bold text-2xl uppercase mb-4">Norte</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
                 Tu socio confiable en la construcción. Acompañamos tus proyectos con los mejores materiales y el asesoramiento que necesitás.
@@ -397,13 +360,13 @@ export default function Home() {
               <h4 className="font-bold text-lg mb-4 uppercase text-primary">Contacto Rápido</h4>
               <ul className="space-y-2 text-gray-400">
                 <li className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer">
-                  <Phone size={16} /> 3644-123456
+                  <Phone size={16} /> 3644-646939
                 </li>
                 <li className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer">
-                  <MapPin size={16} /> Sáenz Peña, Chaco
+                  <MapPin size={16} /> San Martín 1001, Sáenz Peña
                 </li>
                 <li className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer">
-                  <Clock size={16} /> Lun-Vie: 7:30-12:00 | 16-20
+                  <Clock size={16} /> Lun-Vie: 8:00-12:00 | 15:00-19:30
                 </li>
               </ul>
             </div>
@@ -427,7 +390,7 @@ export default function Home() {
 
       {/* Floating WhatsApp */}
       <a 
-        href="https://wa.me/5493644xxxxxx" 
+        href="https://wa.me/5493644646939" 
         target="_blank" 
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform hover:shadow-xl flex items-center justify-center"
