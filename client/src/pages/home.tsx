@@ -351,7 +351,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div>
-              <img src={logoImage} alt="Norte Logo Footer" className="h-10 w-auto mb-4 brightness-0 invert" />
+              <img src={logoImage} alt="Norte Logo Footer" className="h-16 w-auto mb-4 drop-shadow-md" />
               <h3 className="font-heading font-bold text-2xl uppercase mb-4">Norte</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
                 Tu socio confiable en la construcción. Acompañamos tus proyectos con los mejores materiales y el asesoramiento que necesitás.
