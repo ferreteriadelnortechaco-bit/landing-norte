@@ -12,7 +12,8 @@ import {
   CheckCircle2,
   ArrowRight,
   Instagram,
-  Facebook
+  Facebook,
+  Mail
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -173,7 +174,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
           >
             <div className="flex justify-center mb-8">
-              <img src={logoImage} alt="Norte Logo Large" className="h-32 md:h-48 w-auto brightness-0 invert opacity-90" />
+              <img src={logoImage} alt="Norte Logo Large" className="h-48 md:h-64 w-auto drop-shadow-2xl" />
             </div>
             <h2 className="text-primary font-bold tracking-widest uppercase mb-4 text-sm md:text-base">Sáenz Peña, Chaco</h2>
             <h1 className="text-5xl md:text-7xl font-heading font-extrabold uppercase leading-tight mb-6">
@@ -363,6 +364,9 @@ export default function Home() {
                   <Phone size={16} /> 3644-646939
                 </li>
                 <li className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer">
+                  <Mail size={16} /> FERRETERIADELNORTECHACO@gmail.com
+                </li>
+                <li className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer">
                   <MapPin size={16} /> San Martín 1001, Sáenz Peña
                 </li>
                 <li className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer">
@@ -373,10 +377,10 @@ export default function Home() {
             <div>
               <h4 className="font-bold text-lg mb-4 uppercase text-primary">Redes Sociales</h4>
               <div className="flex gap-4">
-                <a href="#" className="w-10 h-10 rounded bg-white/10 flex items-center justify-center hover:bg-primary hover:text-secondary transition-all">
+                <a href="https://www.instagram.com/ferreteriadelnortechaco/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded bg-white/10 flex items-center justify-center hover:bg-primary hover:text-secondary transition-all">
                   <Instagram size={20} />
                 </a>
-                <a href="#" className="w-10 h-10 rounded bg-white/10 flex items-center justify-center hover:bg-primary hover:text-secondary transition-all">
+                <a href="https://www.facebook.com/ferreteria.del.norte.chaco" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded bg-white/10 flex items-center justify-center hover:bg-primary hover:text-secondary transition-all">
                   <Facebook size={20} />
                 </a>
               </div>
