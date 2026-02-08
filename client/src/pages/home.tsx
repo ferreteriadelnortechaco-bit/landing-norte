@@ -13,7 +13,10 @@ import {
   ArrowRight,
   Instagram,
   Facebook,
-  Mail
+  Mail,
+  Zap,
+  Droplets,
+  MessageCircle
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -86,8 +89,8 @@ export default function Home() {
     { name: "Hierros", icon: <div className="h-8 w-8 font-bold text-2xl leading-none">H</div> }, // Custom icon fallback
     { name: "Herramientas", icon: <PenTool className="h-8 w-8" /> },
     { name: "Pinturas", icon: <div className="h-8 w-8 bg-current rounded-full opacity-50" /> },
-    { name: "Electricidad", icon: <div className="h-8 w-8 border-2 border-current rounded-sm" /> },
-    { name: "Sanitarios", icon: <div className="h-8 w-8 border-b-4 border-current rounded-b-xl" /> },
+    { name: "Electricidad", icon: <Zap className="h-8 w-8" /> },
+    { name: "Sanitarios", icon: <Droplets className="h-8 w-8" /> },
   ];
 
   return (
@@ -119,7 +122,7 @@ export default function Home() {
             ))}
             <a href="https://wa.me/5493644646939" target="_blank" rel="noopener noreferrer">
               <Button className="bg-primary text-secondary hover:bg-primary/90 font-bold">
-                <Phone className="mr-2 h-4 w-4" /> WhatsApp
+                <MessageCircle className="mr-2 h-4 w-4 fill-secondary" /> WhatsApp
               </Button>
             </a>
           </div>
@@ -150,7 +153,9 @@ export default function Home() {
               </button>
             ))}
             <a href="https://wa.me/5493644646939" target="_blank" rel="noopener noreferrer" className="w-full">
-              <Button className="w-full font-bold">WhatsApp</Button>
+              <Button className="w-full font-bold">
+                <MessageCircle className="mr-2 h-4 w-4 fill-secondary" /> WhatsApp
+              </Button>
             </a>
           </motion.div>
         )}
@@ -400,7 +405,7 @@ export default function Home() {
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform hover:shadow-xl flex items-center justify-center"
       >
-        <Phone className="h-8 w-8 fill-current" />
+        <MessageCircle className="h-8 w-8 fill-white" />
       </a>
     </div>
   );
