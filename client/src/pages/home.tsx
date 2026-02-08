@@ -157,7 +157,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section id="inicio" className="relative h-[90vh] flex items-center justify-center overflow-hidden">
+      <section id="inicio" className="relative min-h-[90vh] md:h-[90vh] flex items-center justify-center overflow-hidden py-20 md:py-0">
         <div className="absolute inset-0 z-0">
           <img 
             src={heroImage} 
@@ -172,24 +172,25 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            className="flex flex-col items-center"
           >
-            <div className="flex justify-center mb-8">
-              <img src={logoImage} alt="Norte Logo Large" className="h-48 md:h-64 w-auto drop-shadow-2xl" />
+            <div className="flex justify-center mb-6 md:mb-8">
+              <img src={logoImage} alt="Norte Logo Large" className="h-40 md:h-64 w-auto drop-shadow-2xl" />
             </div>
-            <h2 className="text-primary font-bold tracking-widest uppercase mb-4 text-sm md:text-base">Sáenz Peña, Chaco</h2>
-            <h1 className="text-5xl md:text-7xl font-heading font-extrabold uppercase leading-tight mb-6">
+            <h2 className="text-primary font-bold tracking-widest uppercase mb-3 md:mb-4 text-sm md:text-base">Sáenz Peña, Chaco</h2>
+            <h1 className="text-4xl md:text-7xl font-heading font-extrabold uppercase leading-tight mb-4 md:mb-6">
               Todo para tu obra <br /> <span className="text-primary">en un solo lugar</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto font-light">
+            <p className="text-lg md:text-2xl text-gray-200 mb-6 md:mb-8 max-w-2xl mx-auto font-light leading-snug">
               Desde los cimientos hasta las terminaciones. Calidad, precio y el mejor asesoramiento.
             </p>
-            <div className="flex flex-col md:flex-row gap-4 justify-center">
-              <a href="https://wa.me/5493644646939?text=Hola,%20quisiera%20un%20presupuesto" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="bg-primary text-secondary hover:bg-primary/90 text-lg px-8 py-6 h-auto font-bold uppercase rounded-none w-full md:w-auto">
+            <div className="flex flex-col md:flex-row gap-3 md:gap-4 justify-center w-full max-w-xs md:max-w-none px-4">
+              <a href="https://wa.me/5493644646939?text=Hola,%20quisiera%20un%20presupuesto" target="_blank" rel="noopener noreferrer" className="w-full md:w-auto">
+                <Button size="lg" className="bg-primary text-secondary hover:bg-primary/90 text-lg px-8 py-5 md:py-6 h-auto font-bold uppercase rounded-none w-full">
                   Pedir Presupuesto
                 </Button>
               </a>
-              <Button size="lg" variant="outline" className="border-white text-primary hover:bg-white hover:text-secondary text-lg px-8 py-6 h-auto uppercase rounded-none font-bold backdrop-blur-sm" onClick={() => scrollTo('ubicación')}>
+              <Button size="lg" variant="outline" className="border-white text-primary hover:bg-white hover:text-secondary text-lg px-8 py-5 md:py-6 h-auto uppercase rounded-none font-bold backdrop-blur-sm w-full md:w-auto" onClick={() => scrollTo('ubicación')}>
                 <MapPin className="mr-2 h-5 w-5" /> Ver Ubicación
               </Button>
             </div>
