@@ -1,40 +1,46 @@
+@import "tailwindcss";
 @import "tw-animate-css";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    
-    --primary: 45 93% 47%; 
-    --primary-foreground: 240 5.9% 10%;
-    
-    --secondary: 240 5.9% 10%;
-    --secondary-foreground: 0 0% 98%;
-    
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 45 93% 47%;
-    
-    --radius: 0.5rem;
-  }
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: 'Inter', sans-serif;
+  --font-heading: 'Barlow', sans-serif;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+
+  /* Color Palette - Industrial Yellow & Grays */
+  --color-background: hsl(0 0% 100%);
+  --color-foreground: hsl(240 10% 3.9%);
+  
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(240 10% 3.9%);
+  
+  --color-popover: hsl(0 0% 100%);
+  --color-popover-foreground: hsl(240 10% 3.9%);
+  
+  /* Primary: Construction Yellow */
+  --color-primary: hsl(45 93% 47%); 
+  --color-primary-foreground: hsl(240 5.9% 10%);
+  
+  /* Secondary: Dark Industrial Gray */
+  --color-secondary: hsl(240 5.9% 10%);
+  --color-secondary-foreground: hsl(0 0% 98%);
+  
+  --color-muted: hsl(240 4.8% 95.9%);
+  --color-muted-foreground: hsl(240 3.8% 46.1%);
+  
+  --color-accent: hsl(240 4.8% 95.9%);
+  --color-accent-foreground: hsl(240 5.9% 10%);
+  
+  --color-destructive: hsl(0 84.2% 60.2%);
+  --color-destructive-foreground: hsl(0 0% 98%);
+  
+  --color-border: hsl(240 5.9% 90%);
+  --color-input: hsl(240 5.9% 90%);
+  --color-ring: hsl(45 93% 47%);
 }
 
 @layer base {
@@ -45,8 +51,7 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply font-sans antialiased text-foreground;
-    background-color: hsl(var(--background));
+    @apply font-sans antialiased bg-background text-foreground;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading font-bold tracking-tight;
